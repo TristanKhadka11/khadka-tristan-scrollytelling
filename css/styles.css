@@ -1,3 +1,71 @@
+@import url(../assets/font/coolvetica_rg.otf);
+
+@font-face {
+  font-family: "coolvetica";
+  src: url(../assets/font/coolvetica_rg.otf);
+}
+
+:root {
+  --black: #000;
+  --marine: #005F73;
+  --turquoise: #0A9396;
+  --turquoiseclair: #94D2BD;
+  --beige: #E9D8A6;
+  --orange: #EE9B00;
+  --oragne2: #CA6702;
+  --red1: #BB3E03;
+  --red2: #AE2012;
+  --red3: #9B2226;
+  --white: white;
+}
+
+/*----- Styles Généraux -----*/
+
+body {
+  font-family: "coolvetica";
+}
+
+h1,
+.h1 {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--black);
+}
+h2,
+.h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--black);
+}
+h3,
+.h3 {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--black);
+}
+h4,
+.h4 {
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--black);
+}
+h5,
+.h5 {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--black);
+}
+h6,
+.h6 {
+  font-size: 10px;
+  font-weight: 200;
+  color: var(--black);
+}
+
+
+
+
+
 header {
     width: 100%;
     height: 100vh;
