@@ -16,3 +16,23 @@ gsap.to('.scroll-text', {
     repeat: -1
 });
 
+
+
+window.addEventListener('scroll', function() {
+   
+    document.body.classList.add('is-scrolling');
+
+
+    clearTimeout(timer);
+    var timer = setTimeout(function() {
+        document.body.classList.remove('is-scrolling');
+    }, 100);
+});
+
+
+
+
+
+
+
+
