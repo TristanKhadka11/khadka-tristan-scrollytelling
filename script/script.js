@@ -17,11 +17,12 @@ gsap.to('.scroll-text', {
 });
 
 
+let timer;
 
 window.addEventListener('scroll', function() {
    
     document.body.classList.add('is-scrolling');
-
+   
 
     clearTimeout(timer);
     var timer = setTimeout(function() {

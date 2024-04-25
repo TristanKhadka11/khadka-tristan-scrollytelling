@@ -139,66 +139,240 @@ main section {
 }
 
 
-
 .section {
     width: 100%;
     height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    z-index: 0;
+    position: relative;
+  
 }
+
+img {
+  border: 1px solid rgba(218, 0, 0, 0.5); 
+  max-width: 100%; 
+  height: auto; 
+}
+
+
+#etoile1, #etoile2, #etoile3, #nuage, #champignon, #papillon, .sprite1, .sprite2 {
+  aspect-ratio: 1 / 1; 
+  
+}
+
+ul.technique-gsap{
+  background: rgba(0,0,0,0.3);
+  color: white;
+  font-size: 10px;
+  font-family: monospace;
+  font-weight: 400;
+  width: auto;
+  display: inline-block;
+  padding: 10px 20px 12px 20px;
+  margin: 0;
+  max-width: 300px;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+}
+
+ul.technique-gsap li{
+  margin: 5px 0;
+}
+
+/*---------------------------------------------------------- 
+# Chapitre 1
+----------------------------------------------------------*/ 
 
 .section1 {
     background-image: url('../source/img/svg/chapitre_01/arriere_jour.svg');
 }
 
+#soleil {
+  position: absolute;
+  top: 5vh; 
+  left: 70vw; 
+  height: 20vh ;
+  
+}
+
+/*---------------------------------------------------------- 
+# Chapitre 1
+----------------------------------------------------------*/ 
+
 .section1-2 {
   background-image: url('../source/img/svg/chapitre_01/arriere_nuit.svg');
 }
+
+#lune{
+  position: absolute;
+  top: 5vh; 
+  left: 70vw; 
+  height: 15vh ;
+  
+}
+/*---------------------------------------------------------- 
+# Chapitre 2
+----------------------------------------------------------*/ 
 
 .section2 {
     background-image: url('../source/img/svg/chapitre_02/piece_sommeil.svg');
 }
 
+#z1 {
+  position: absolute;
+  top: 30vh; 
+  left: 40vw; 
+  height: 5vh ;
+  
+}
+
+#z2 {
+  position: absolute;
+  top: 22vh; 
+  left: 35vw; 
+  height: 10vh ;
+  
+}
+
+#z3 {
+  position: absolute;
+  top: 6vh; 
+  left: 25vw; 
+  height: 20vh ;
+  
+}
+
+
+/*---------------------------------------------------------- 
+# Chapitre 3
+----------------------------------------------------------*/ 
+
 .section3 {
   background-image: url('../source/img/svg/chapitre_03/landscape.svg');
 }
+
+#etoile1 {
+  position: absolute;
+  top: 22vh; 
+  left: 10vw; 
+  height: 5vh ;
+  
+}
+
+#etoile2 {
+  position: absolute;
+  top: 10vh; 
+  left: 35vw; 
+  height: 10vh ;
+  
+}
+
+#etoile3 {
+  position: absolute;
+  top: 20vh; 
+  left: 50vw; 
+  height: 20vh ;
+  
+}
+/*---------------------------------------------------------- 
+# Chapitre 4
+----------------------------------------------------------*/ 
 
 .section4 {
   background-image: url('../source/img/svg/chapitre_04/fond.svg');
 }
 
+#champignon {
+  position: absolute;
+  top: 20vh; 
+  left: 30vw; 
+  height: 50vh ;
+  
+}
+
+#papillon {
+  position: absolute;
+  top: 30vh; 
+  left: 20vw; 
+  height: 10vh ;
+  
+}
+
+/*---------------------------------------------------------- 
+# Chapitre 5
+----------------------------------------------------------*/ 
+
 .section5 {
   background-image: url('../source/img/svg/chapitre_05/fond_enfer.svg');
 }
 
-.section6 {
-  background-image: url('../source/img/svg/chapitre_02/piece_sommeil.svg');
+#porte {
+  position: absolute;
+  top:30vh; 
+  left: 10vw; 
+  height: 60vh ;
+
+  
 }
+/*---------------------------------------------------------- 
+# Chapitre 6
+----------------------------------------------------------*/ 
+
+.section6 {
+  background-image: url('../source/img/png/exports/noir.jpg');
+}
+
+#textillusion {
+  position: absolute;
+  top:30vh; 
+  left: 8vw; 
+  height: 30vh ;
+
+  
+}
+
+
+/*---------------------------------------------------------- 
+# Chapitre 7
+----------------------------------------------------------*/ 
 
 .section7 {
   background-image: url('../source/img/svg/chapitre_02/piece_sommeil.svg');
 }
 
-body.is-scrolling.sprite {
+
+/*---------------------------------------------------------- 
+# Chapitre sprite
+----------------------------------------------------------*/ 
+
+.is-scrolling .sprite1 {
   animation-play-state: paused;
 }
 
+.is-scrolling .sprite2 {
+  animation-play-state: running;
+}
+
 .sprite1 {
-  width: 50vw;
+  width: 80vw;
   aspect-ratio: 1/1;
   background-image: url('../source/img/png/exports/sprite_max_dors.png');
   animation: play-sprite1;
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
   animation-timing-function: steps(48);
-  background-size: 100% 4800%;
+  background-size: 752px 36096px;
+
 
 }
 
 @keyframes play-sprite1 {
   from { background-position: 0 0; }
-  to { background-position: 0 4800%; } 
+  to { background-position: 0 36096px; } 
 }
 
 .sprite2 {
@@ -209,14 +383,22 @@ body.is-scrolling.sprite {
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
   animation-timing-function: steps(48);
-  background-size: 4800% 100%;
+  background-size: 36000px 750px;
 
 }
 
 @keyframes play-sprite2 {
   from { background-position: 0 0; }
-  to { background-position: 4800% 0; } 
+  to { background-position: 36000px 0; } 
 }
+
+
+
+
+
+
+
+
 
 
 
