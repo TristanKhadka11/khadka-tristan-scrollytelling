@@ -128,6 +128,21 @@ const timeline3 = gsap.timeline({
     yoyo: true       
   });
 
+  const timeline5 = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#chapitre1-2",
+      start: "top center",   
+      end: "center center", 
+      scrub: true            
+    }
+  });
+
+  timeline5.from(".story-text", { opacity: 0, duration: 1 });
+  
+
+
+
+
   
 
 
