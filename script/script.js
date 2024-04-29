@@ -1,4 +1,7 @@
 
+//sprite
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -29,6 +32,8 @@ window.addEventListener('scroll', function() {
         document.body.classList.remove('is-scrolling');
     }, 100);
 });
+
+//chapitre1
 
 const timelineTitre = gsap.timeline({
     scrollTrigger: {
@@ -63,6 +68,8 @@ const timelineTitre = gsap.timeline({
 
 
 
+  //chapitre2
+
 const timeline2 = gsap.timeline({
     scrollTrigger: {
       trigger: "#chapitre2",
@@ -89,6 +96,9 @@ timeline2.fromTo(".sprite1", {
   duration: 0.5 
 });
 
+
+//chapitre4
+
 const timeline3 = gsap.timeline({
     scrollTrigger: {
       trigger: "#chapitre4", 
@@ -108,26 +118,9 @@ const timeline3 = gsap.timeline({
     duration: 1 
   });
 
-  const timeline4 = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#chapitre5", 
-      start: "top center",   
-      end: "center center",  
-      scrub: true            
-    }
-  });
+    
+  //chapitre1-2 
   
-
-  
-
-  timeline4.to("#porte", {
-    x: tremblementX, 
-    y: tremblementY,
-    duration: 0.1,   
-    repeat: -1,      
-    yoyo: true       
-  });
-
   const timeline5 = gsap.timeline({
     scrollTrigger: {
       trigger: "#chapitre1-2",
