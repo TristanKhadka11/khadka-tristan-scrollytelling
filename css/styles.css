@@ -306,25 +306,34 @@ ul.technique-gsap li{
 
 #z1 {
   position: absolute;
-  top: 30vh; 
-  left: 40vw; 
+  top: 35vh; 
+  left: 45vw; 
   height: 5vh ;
   
 }
 
 #z2 {
   position: absolute;
-  top: 22vh; 
-  left: 35vw; 
+  top: 27vh; 
+  left: 41vw; 
   height: 10vh ;
   
 }
 
 #z3 {
   position: absolute;
-  top: 6vh; 
-  left: 25vw; 
+  top: 12vh; 
+  left: 34vw; 
   height: 20vh ;
+  
+}
+
+.perschap3 {
+  position: absolute;
+ width: 90vh;
+ top: 15vh; 
+ left: 25vw; 
+
   
 }
 
@@ -378,8 +387,8 @@ ul.technique-gsap li{
 
 #champignon {
   position: absolute;
-  top: 20vh; 
-  left: 30vw; 
+  top: 30vh; 
+  left: 35vw; 
   height: 50vh ;
   
 }
@@ -403,7 +412,7 @@ ul.technique-gsap li{
 #porte {
   position: absolute;
   top:30vh; 
-  left: 10vw; 
+  left: 25vw; 
   height: 60vh ;
 z-index: 0;
   
@@ -411,28 +420,27 @@ z-index: 0;
 
 .perschap5 {
   position: absolute;
-  top:25vh; 
-  left: -20vw; 
-  height: 60vh ;
-z-index: 1;
+  width: 90vh;
+  top: 20vh; 
+  left: -9vw; 
   
 }
 
 
 .feu1 {
   position: absolute;
-  top:6vh; 
-  left: 42vw; 
-  height: vh ;
+  width: 52vh;
+  top: 29vh; 
+  left: 52vw; 
   
 }
 
 
 .feu2 {
   position: absolute;
-  top:4vh; 
-  left: -20vw; 
-  height: vh ;
+  width: 49vh;
+  top: 30vh; 
+  left: 19vw; 
   
 }
 
@@ -448,7 +456,7 @@ z-index: 1;
 #textillusion {
   position: absolute;
   top:30vh; 
-  left: 8vw; 
+  left: 25vw; 
   height: 30vh ;
 
   
@@ -463,6 +471,12 @@ z-index: 1;
   background-image: url('../source/img/svg/chapitre_02/blanc.png');
 }
 
+.perschap8{
+position: absolute;
+width: 90vh;
+top: 15vh; 
+left: 25vw; 
+}
 
 /*---------------------------------------------------------- 
 # Chapitre sprite
@@ -484,14 +498,13 @@ z-index: 1;
 
 
 .sprite1 {
-  width: 80vw;
   aspect-ratio: 1/1;
   background-image: url('../source/img/png/exports/sprite_max_dors.png');
   animation: play-sprite1;
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
   animation-timing-function: steps(48);
-  background-size: 752px 36096px;
+  background-size: 100% 4800%;
   animation-play-state: paused;
   z-index: 1;
   
@@ -500,42 +513,38 @@ z-index: 1;
 }
 
 .sprite3 {
-  width: 80vw;
   aspect-ratio: 1/1;
   background-image: url('../source/img/png/exports/sprite_max_reveille.png');
   animation: play-sprite3;
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
   animation-timing-function: steps(48);
-  background-size: 752px 36096px;
+  background-size: 100% 4800%;
   animation-play-state: paused;
   z-index: 1;
-  
-
 
 }
 
 @keyframes play-sprite1 {
   from { background-position: 0 0; }
-  to { background-position: 0 36096px; } 
+  to { background-position: 0 4800%; } 
 }
 
 .sprite2 {
-  width: 50vw;
   aspect-ratio: 1/1;
   background-image: url('../source/img/png/exports/sprite_feu.png');
   animation: play-sprite2;
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
   animation-timing-function: steps(48);
-  background-size: 36000px 750px;
+  background-size: 4800% 100%;
   animation-play-state: paused;
 
 }
 
 @keyframes play-sprite2 {
   from { background-position: 0 0; }
-  to { background-position: 36000px 0; } 
+  to { background-position: 4800% 0; } 
 }
 
 

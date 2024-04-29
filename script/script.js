@@ -49,7 +49,7 @@ const timelineTitre = gsap.timeline({
 
 
   timelineTitre.to("#soleil", {
-    x: -window.innerWidth, 
+    x: -10000, 
     duration: 3,           
     ease: "power2.inOut"  
   });
