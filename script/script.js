@@ -3,6 +3,9 @@
 
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(DrawSVGPlugin);
+gsap.registerPlugin(MorphSVGPlugin);
+
 
 
 gsap.to('.scroll-down img', {
@@ -33,7 +36,7 @@ window.addEventListener('scroll', function() {
     }, 100);
 });
 
-//chapitre1
+  //chapitre1------------------------------------------
 
 const timelineTitre = gsap.timeline({
     scrollTrigger: {
@@ -61,10 +64,111 @@ const timelineTitre = gsap.timeline({
 
 
 
+  var timeline6 = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#chapitre1", 
+        start: "-10%", 
+        end: "80%",
+        scrub: true, 
+        markers: true,
+    }
+  });
+  
+  
+  timeline6.to("#devantnuit", {
+    y: "10%", 
+    duration: 1, 
+    ease: "power2.inOut" 
+  });
+  
+  
+  timeline6.to("#milieunuit", {
+    y: "10%", 
+    duration: 1.5,
+    ease: "power2.inOut" 
+  }, '-=1'); 
+
   
 
-  //chapitre1-2
 
+
+let speed = 100;
+
+
+function animateDayParallax() {
+    gsap.to("#arrierejour, #milieujour, #devantjour", { y: 3 * speed, ease: "power1.in" });
+}
+
+
+function animateNightParallax() {
+    gsap.to("#arrierenuit, #milieunuit, #devantnuit", { y: 0 * speed, ease: "power1.in" });
+}
+
+
+function dayToNightTransition() {
+    animateNightParallax(); // Animation de départ du parallaxe de nuit
+    gsap.to("#arrierenuit, #milieunuit, #devantnuit", { opacity: 1, duration: 2 }); // Faire apparaître les éléments de nuit avec une durée de fondu de 2 secondes
+    gsap.to("#arrierejour, #milieujour, #devantjour", { opacity: 0, duration: 2 }); // Faire disparaître les éléments de jour avec une durée de fondu de 2 secondes
+    animateDayParallax(); 
+}
+
+
+function nightToDayTransition() {
+    animateDayParallax(); // Animation de départ du parallaxe du jour
+    gsap.to("#arrierenuit, #milieunuit, #devantnuit", { opacity: 0, duration: 2 }); // Faire disparaître les éléments de nuit avec une durée de fondu de 2 secondes
+    gsap.to("#arrierejour, #milieujour, #devantjour", { opacity: 1, duration: 2 }); // Faire apparaître les éléments de jour avec une durée de fondu de 2 secondes
+    animateNightParallax();
+}
+
+
+ScrollTrigger.create({
+  trigger: ".section1",
+  start: "top 50%", 
+  end: "bottom 100%",
+  onEnter: dayToNightTransition, 
+  onLeaveBack: nightToDayTransition,
+  scrub: true
+});
+
+
+animateDayParallax(); 
+
+gsap.to(".section3", {
+  backgroundPosition: "50% 120%",
+  ease: "none",
+  scrollTrigger: {
+      trigger: ".section3",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+
+  }
+});
+
+gsap.to(".section1", {
+  backgroundPosition: "50% 110%",
+  ease: "none",
+  scrollTrigger: {
+      trigger: ".section1",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      markers: true
+  }
+});
+
+  //chapitre1-2------------------------------------------
+
+  const timeline5 = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#chapitre1-2",
+      start: "top center",   
+      end: "center center", 
+      scrub: true            
+    }
+  });
+
+  timeline5.from(".story-text", { opacity: 0, duration: 1 });
 
   const timeline4 = gsap.timeline({
     scrollTrigger: {
@@ -84,13 +188,9 @@ const timelineTitre = gsap.timeline({
 
 
 
+  //chapitre2------------------------------------------
 
-
-
-
-  //chapitre2
-
-const timeline2 = gsap.timeline({
+  const timeline2 = gsap.timeline({
     scrollTrigger: {
       trigger: "#chapitre2",
       start: "top center",   
@@ -116,10 +216,77 @@ timeline2.fromTo(".sprite1", {
   duration: 0.5 
 });
 
+  //chapitre3------------------------------------------
 
-//chapitre4
+  gsap.set(["#etoile3", "#etoile2", "#etoile1" ],{drawSVG:"0% 0%"});
+function anim() {
+  gsap.timeline()
+  .fromTo(
+    "#etoile3",
+     {
+      drawSVG:"0% 0%"
+    },
+    {
+      drawSVG:"100% 100%",
+      duration: 1
+    }
+    
+  )
 
-const timeline3 = gsap.timeline({
+  .fromTo(
+    "#etoile2",
+     {
+      drawSVG:"0% 0%"
+    },
+    {
+      drawSVG:"0% 100%",
+      duration: 1
+    }
+    
+  )
+
+  .fromTo(
+    "#etoile1",
+     {
+      drawSVG:"0% 0%"
+    },
+    {
+      drawSVG:"0% 100%",
+      duration: 1
+    }
+    
+  )
+
+  .fromTo(
+    ["#etoile3", "#etoile2", "#etoile1"],
+    {
+      fillOpacity: 0
+    },
+    {
+      fillOpacity: 1,
+      duration: 1
+    }
+  );
+}
+
+const btn=document.querySelector("#go");
+btn.addEventListener("click", anim);
+
+gsap.to(".section3", {
+  backgroundPosition: "50% 100%", 
+  ease: "none",
+  scrollTrigger: {
+      trigger: ".section3",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      markers: true
+  }
+});
+
+  //chapitre4------------------------------------------
+
+  const timeline3 = gsap.timeline({
     scrollTrigger: {
       trigger: "#chapitre4", 
       start: "top center",  
@@ -138,139 +305,144 @@ const timeline3 = gsap.timeline({
     duration: 1 
   });
 
-    
-  //chapitre1-2 
+  gsap.to("#papillon", {
+    duration: 4,
+    repeat: 12,
+    repeatDelay: 0.5,
+    yoyo: true,
+    ease: "power1.inOut",
   
-  const timeline5 = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#chapitre1-2",
-      start: "top center",   
-      end: "center center", 
-      scrub: true            
+    motionPath: {
+      path: "#courbe",
+      align: "#courbe",
+      autoRotate: true, 
+      alignOrigin: [0.5, 0.5]
     }
   });
 
-  timeline5.from(".story-text", { opacity: 0, duration: 1 });
 
-
-
-let speed = 100;
-
-
-function animateDayParallax() {
-    gsap.to("#arrierejour, #milieujour, #devantjour", { y: 3 * speed, ease: "power1.in" });
-}
-
-
-function animateNightParallax() {
-    gsap.to("#arrierenuit, #milieunuit, #devantnuit", { y: 0 * speed, ease: "power1.in" });
-}
-
-
-function dayToNightTransition() {
-    animateNightParallax(); // Animation de départ du parallaxe de nuit
-    gsap.to("#arrierenuit, #milieunuit, #devantnuit", { opacity: 1, duration: 2 }); // Faire apparaître les éléments de nuit avec une durée de fondu de 2 secondes
-    gsap.to("#arrierejour, #milieujour, #devantjour", { opacity: 0, duration: 2 }); // Faire disparaître les éléments de jour avec une durée de fondu de 2 secondes
-    animateDayParallax(); // Animation du parallaxe des éléments de jour
-}
-
-
-function nightToDayTransition() {
-    animateDayParallax(); // Animation de départ du parallaxe du jour
-    gsap.to("#arrierenuit, #milieunuit, #devantnuit", { opacity: 0, duration: 2 }); // Faire disparaître les éléments de nuit avec une durée de fondu de 2 secondes
-    gsap.to("#arrierejour, #milieujour, #devantjour", { opacity: 1, duration: 2 }); // Faire apparaître les éléments de jour avec une durée de fondu de 2 secondes
-    animateNightParallax(); // Animation du parallaxe des éléments de nuit
-}
-
-
-ScrollTrigger.create({
-  trigger: ".section1",
-  start: "top 50%", // Déclencher la transition à mi-chemin de la section
-  end: "bottom 100%",
-  onEnter: dayToNightTransition, // Transition du jour à la nuit
-  onLeaveBack: nightToDayTransition, // Transition de la nuit au jour
-  scrub: true
+let to = gsap.to("#papillon", { 
+ morphSVG: "#point-noir"
 });
 
 
-animateDayParallax(); 
-
-gsap.to(".section3", {
-  backgroundPosition: "50% 120%",
-  ease: "none",
-  scrollTrigger: {
-      trigger: ".section3",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: true,
-
-  }
+document.addEventListener("click", function () {
+ console.log("reset");
+ to.progress(0).pause();
+ const myTimeout = setTimeout(function () {
+    to.play();
+  }, 1000);
 });
 
+  //chapitre5------------------------------------------
+
+  const timeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.story-text5', 
+        start: 'center center', 
+        end: 'bottom center', 
+        scrub: true,
+  
+  
+    }
+  });
+  
+  
+  timeline.from('.perschap5', {
+    x: -600, 
+    duration: 0.1 
+  });
+  
+  
+  timeline.from('.feu1, .feu2', {
+    scale: 0,
+    duration: 0.5
+  }, '-=1'); 
+
+  //chapitre6------------------------------------------
+
+  const textillu = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#chapitre6", 
+        start: "top center", 
+        end: "+=100%", 
+        scrub: true 
+    }
+  });
+  
+  
+  textillu.fromTo("#textillusion", {
+      y: "100%",     
+      opacity: 0    
+  }, {
+      y: "0%",       
+      opacity: 1,   
+      duration: 1   
+  });
+
+  //chapitre7------------------------------------------
+
+  const timeline7 = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#chapitre7", 
+        start: "-10% center", 
+        end: "+=80%", 
+        scrub: true 
+    }
+  });
+  
+  
+  timeline7.fromTo(".perschap8dort", {opacity: 1}, {opacity: 0}); 
+  timeline7.to(".sprite3", {opacity: 1}, "<"); 
 
 
 
-var timeline6 = gsap.timeline({
-  scrollTrigger: {
-      trigger: "#chapitre1", 
-      start: "-10%", 
-      end: "80%",
-      scrub: true, 
-      markers: true,
-  }
-});
 
 
-timeline6.to("#devantnuit", {
-  y: "10%", 
-  duration: 1, 
-  ease: "power2.inOut" 
-});
 
 
-timeline6.to("#milieunuit", {
-  y: "10%", 
-  duration: 1.5,
-  ease: "power2.inOut" 
-}, '-=1'); 
-
-gsap.to("#papillon", {
-  duration: 5,
-  repeat: 12,
-  repeatDelay: 3,
-  yoyo: true,
-  ease: "power1.inOut",
-  motionPath:{
-    path: "#courbe",
-    align: "#courbe",
-    autoRotate: true,
-    alignOrigin: [0.5, 0.5]
-  }
-});
 
 
-const timeline = gsap.timeline({
-  scrollTrigger: {
-      trigger: '.story-text5', 
-      start: 'center center', 
-      end: 'bottom center', 
-      scrub: true,
 
 
-  }
-});
 
 
-timeline.from('.perschap5', {
-  x: -600, 
-  duration: 0.1 
-});
+
+  
+ 
 
 
-timeline.from('.feu1, .feu2', {
-  scale: 0,
-  duration: 0.5
-}, '-=1'); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

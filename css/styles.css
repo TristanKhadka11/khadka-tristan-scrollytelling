@@ -264,7 +264,10 @@ ul.technique-gsap li{
 .section1 {
     background-image: url('../source/img/svg/chapitre_01/arriere_nuit.svg');
     overflow: hidden;
-    height: 100vh; /* Ajoutez ceci pour occuper la hauteur de la fenêtre */
+    background-size: 150%;  /* ou 200% pour augmenter l'effet, si l'image originale est assez grande */
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: 50% 0%;
    
 }
 
@@ -348,9 +351,22 @@ ul.technique-gsap li{
 
 .section3 {
   background-image: url('../source/img/svg/chapitre_03/landscape.svg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
+  top: 0vh;
+  background-size: 150%;  /* ou 200% pour augmenter l'effet, si l'image originale est assez grande */
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: 50% 0%;
+}
+
+#etoile1,
+#etoile2,
+#etoile3 {
+  color: #000000;
+  fill-opacity: 0;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  -inkscape-stroke: none;
+  stroke: white;
 }
 
 #etoile1 {
@@ -358,6 +374,7 @@ ul.technique-gsap li{
   top: 22vh; 
   left: 10vw; 
   height: 5vh ;
+  fill: rgb(212, 212, 30);
   
 }
 
@@ -366,6 +383,7 @@ ul.technique-gsap li{
   top: 10vh; 
   left: 35vw; 
   height: 10vh ;
+  fill: rgb(212, 212, 30);
   
 }
 
@@ -374,6 +392,7 @@ ul.technique-gsap li{
   top: 10vh; 
   left: 50vw; 
   height: 20vh ;
+   fill: rgb(212, 212, 30);
   
 }
 
@@ -383,6 +402,25 @@ ul.technique-gsap li{
   left: 6vw; 
   height: 80vh ;
   
+}
+
+.btn {
+  background: rgb(212, 212, 30);
+  border: none;
+  font-size: 24px;
+  border-radius: 10px;
+  display: block;
+  margin: 40px auto;
+  color: white;
+  padding: 10px 20px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  top: 20vh;
+}
+
+.btn:hover {
+  background-color: rgba(255, 38, 58, 0.6);
+  cursor: pointer;
 }
 /*---------------------------------------------------------- 
 # Chapitre 4
@@ -405,7 +443,17 @@ ul.technique-gsap li{
   top: 30vh; 
   left: 0vw; 
   height: 10vh ;
+ 
   
+}
+
+#point-noir {
+  width: 100px;
+  height: 300px;
+}
+
+#point-noir-group {
+  fill: #000000; /* black fill color */
 }
 
 /*---------------------------------------------------------- 
@@ -483,8 +531,15 @@ position: absolute;
 width: 90vh;
 top: 15vh; 
 left: 25vw; 
+
 }
 
+.perschap8dort{
+  position: absolute;
+  width: 120vh;
+  top: 0vh; 
+  left: 16vw; 
+  }
 /*---------------------------------------------------------- 
 # sprite
 ----------------------------------------------------------*/ 
@@ -514,7 +569,6 @@ left: 25vw;
   background-size: 100% 4800%;
   animation-play-state: paused;
   z-index: 1;
-  
 
 
 }
@@ -603,6 +657,8 @@ left: 25vw;
   height: 100vh;
   top: 31vh; 
 }
+
+
 
 
 
