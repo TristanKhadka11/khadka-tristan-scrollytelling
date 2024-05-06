@@ -95,7 +95,7 @@ const timeline2 = gsap.timeline({
       trigger: "#chapitre2",
       start: "top center",   
       end: "center center", 
-      scrub: true            
+      scrub: true ,        
     }
   });
   
@@ -124,7 +124,7 @@ const timeline3 = gsap.timeline({
       trigger: "#chapitre4", 
       start: "top center",  
       end: "center center", 
-      scrub: true           
+      scrub: true,           
     }
   });
   
@@ -152,8 +152,6 @@ const timeline3 = gsap.timeline({
 
   timeline5.from(".story-text", { opacity: 0, duration: 1 });
 
- // Importation de la bibliothèque GSAP et du plugin ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
 
 
 let speed = 100;
@@ -165,7 +163,7 @@ function animateDayParallax() {
 
 
 function animateNightParallax() {
-    gsap.to("#arrierenuit, #milieunuit, #devantnuit", { y: 3 * speed, ease: "power1.in" });
+    gsap.to("#arrierenuit, #milieunuit, #devantnuit", { y: 0 * speed, ease: "power1.in" });
 }
 
 
@@ -214,27 +212,69 @@ gsap.to(".section3", {
 
 var timeline6 = gsap.timeline({
   scrollTrigger: {
-    trigger: "#chapitre1", // Déclencheur lorsque vous atteignez le bas de la page
-    start: "10%", // Déclencher lorsque vous êtes au milieu de la fenêtre
-    end: "80%", // Fin de la zone de déclenchement
-    scrub: true, // L'animation se synchronise avec le défilement
-    markers: true // Affiche les marqueurs pour le débogage
+      trigger: "#chapitre1", 
+      start: "-10%", 
+      end: "80%",
+      scrub: true, 
+      markers: true,
   }
 });
 
-// Animation de l'élément #devantnuit
+
 timeline6.to("#devantnuit", {
-  y: "50%", // Descendre l'élément devant jusqu'au milieu de la page
-  duration: 1, // Durée de l'animation en secondes
-  ease: "power2.inOut" // Fonction d'animation
+  y: "10%", 
+  duration: 1, 
+  ease: "power2.inOut" 
 });
 
-// Animation de l'élément #milieunuit
+
 timeline6.to("#milieunuit", {
-  y: "60%", // Descendre l'élément milieu jusqu'au milieu de la page
-  duration: 1, // Durée de l'animation en secondes
-  ease: "power2.inOut" // Fonction d'animation
+  y: "10%", 
+  duration: 1.5,
+  ease: "power2.inOut" 
+}, '-=1'); 
+
+gsap.to("#papillon", {
+  duration: 5,
+  repeat: 12,
+  repeatDelay: 3,
+  yoyo: true,
+  ease: "power1.inOut",
+  motionPath:{
+    path: "#courbe",
+    align: "#courbe",
+    autoRotate: true,
+    alignOrigin: [0.5, 0.5]
+  }
 });
+
+
+const timeline = gsap.timeline({
+  scrollTrigger: {
+      trigger: '.story-text5', 
+      start: 'center center', 
+      end: 'bottom center', 
+      scrub: true,
+
+
+  }
+});
+
+
+timeline.from('.perschap5', {
+  x: -600, 
+  duration: 0.1 
+});
+
+
+timeline.from('.feu1, .feu2', {
+  scale: 0,
+  duration: 0.5
+}, '-=1'); 
+
+
+
+
 
 
 
