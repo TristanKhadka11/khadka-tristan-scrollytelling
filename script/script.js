@@ -42,9 +42,10 @@ const timelineTitre = gsap.timeline({
     scrollTrigger: {
       trigger: "#chapitre1", 
       start: "top top",   
-      end: "bottom bottom", 
-      scrub: true ,
-      pin: true,           
+      end: "110% 110%", 
+        pin: true,      
+        scrub: 1,  
+        markers: true
     }
   });
   
@@ -52,15 +53,16 @@ const timelineTitre = gsap.timeline({
   timelineTitre.from("#titre", {
     opacity: 0,          
     x: -100,           
-        
+    scrub: 1,
     ease: "power2.inOut" 
   });
 
 
   timelineTitre.to("#soleil", {
-    x: -500, 
-    duration: 1,           
-    ease: "power2.inOut"  
+    x: -5000, 
+    duration: 3,           
+    ease: "power2.inOut",  
+  
   });
 
 
@@ -68,10 +70,12 @@ const timelineTitre = gsap.timeline({
   var timeline6 = gsap.timeline({
     scrollTrigger: {
         trigger: "#chapitre1", 
-        start: "-10%", 
-        end: "80%",
-        scrub: true, 
-        markers: true,
+        start: "top top", 
+        end: "bottom bottom",
+        scrub: 1,
+        pin: true, 
+       // markers:true,
+      
     }
   });
   
@@ -124,11 +128,12 @@ function nightToDayTransition() {
 
 ScrollTrigger.create({
   trigger: ".section1",
-  start: "top top", 
+  start: "-120vh top", 
   end: "bottom bottom",
   onEnter: dayToNightTransition, 
   onLeaveBack: nightToDayTransition,
-  scrub: true
+  scrub: 1,
+  pin: true, 
 });
 
 
@@ -142,6 +147,7 @@ gsap.to(".section3", {
       start: "top top",
       end: "bottom bottom",
       scrub: true,
+      pin: true, 
 
   }
 });
@@ -151,10 +157,11 @@ gsap.to(".section1", {
   ease: "none",
   scrollTrigger: {
       trigger: ".section1",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: true,
-      markers: true
+      start: "center center",
+      end: "bottom top",
+      scrub: 1,
+      pin: true, 
+      
   }
 });
 
@@ -164,27 +171,33 @@ gsap.to(".section1", {
     scrollTrigger: {
       trigger: "#chapitre1-2",
       start: "top top",   
-      end: "bottom bottom", 
-      scrub: true            
+      end: "bottom bottom",  
+      scrub: 1,
+      pin: true,  
+      
+   
     }
   });
 
-  timeline5.from(".story-text", { opacity: 0, duration: 1 });
+  timeline5.from(".story-text", { opacity: 0, duration: 0.5 });
 
   const timeline4 = gsap.timeline({
     scrollTrigger: {
       trigger: "#chapitre1-2", 
       start: "top top",   
-      end: "bottom bottom", 
-      scrub: true            
+      end: "bottom bottom",  
+      scrub: 1,     
+      pin: true,
+     //markers: true  ,     
     }
   });
 
   timeline4.from("#lune", {
     opacity: 0,
     x: window.innerWidth,
-    duration: 3,
-    ease: "power2.inOut"
+    duration: 1,
+    ease: "power2.inOut",
+    pin: true, 
   });
 
 
@@ -196,14 +209,16 @@ gsap.to(".section1", {
       trigger: "#chapitre2",
       start: "top top",   
       end: "bottom bottom", 
-      scrub: true ,        
+      scrub: 1,
+      pin: true, 
+        
     }
   });
   
 
-  timeline2.from("#z1", { opacity: 0, duration: 0.5 })
-          .from("#z2", { opacity: 0, duration: 0.5 })
-          .from("#z3", { opacity: 0, duration: 0.5 });
+  timeline2.from("#z1", { opacity: 0, duration: 0.2 })
+          .from("#z2", { opacity: 0, duration: 0.2 })
+          .from("#z3", { opacity: 0, duration: 0.2 });
 
          
 timeline2.from(".story-text2", { opacity: 0, duration: 1 });
@@ -225,10 +240,10 @@ function anim() {
   .fromTo(
     "#etoile3",
      {
-      drawSVG:"0% 0%"
+      drawSVG:"0%"
     },
     {
-      drawSVG:"100% 100%",
+      drawSVG:"100%",
       duration: 1
     }
     
@@ -280,8 +295,8 @@ gsap.to(".section3", {
       trigger: ".section3",
       start: "top top",
       end: "bottom bottom",
-      scrub: true,
-      markers: true
+      scrub: 0.5,
+      pin: true, 
   }
 });
 
@@ -292,7 +307,8 @@ gsap.to(".section3", {
       trigger: "#chapitre4", 
       start: "top top",  
       end: "bottom bottom", 
-      scrub: true,           
+      scrub: 1,
+       pin: true,          
     }
   });
   
@@ -342,8 +358,8 @@ document.addEventListener("click", function () {
         trigger: '.story-text5', 
         start: 'top top', 
         end: 'bottom bottom', 
-        scrub: true,
-  
+        scrub: 1,
+        pin: true, 
   
     }
   });
@@ -366,8 +382,9 @@ document.addEventListener("click", function () {
     scrollTrigger: {
         trigger: "#chapitre6", 
         start: "top top", 
-        end: "+=100%", 
-        scrub: true 
+        end: "botttom bottom", 
+        scrub: 1,
+        pin: true, 
     }
   });
   
@@ -386,9 +403,10 @@ document.addEventListener("click", function () {
   const timeline7 = gsap.timeline({
     scrollTrigger: {
         trigger: "#chapitre7", 
-        start: "0% center", 
-        end: "+=80%", 
-        scrub: true 
+        start: "top top", 
+        end: "bottom bottom", 
+        scrub: 1,
+        pin: true, 
     }
   });
   
