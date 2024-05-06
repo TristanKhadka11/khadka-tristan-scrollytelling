@@ -385,7 +385,7 @@ document.addEventListener("click", function () {
   const timeline7 = gsap.timeline({
     scrollTrigger: {
         trigger: "#chapitre7", 
-        start: "-10% center", 
+        start: "0% center", 
         end: "+=80%", 
         scrub: true 
     }
