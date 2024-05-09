@@ -38,56 +38,42 @@ window.addEventListener('scroll', function() {
 
   //chapitre1------------------------------------------
 
-const timelineTitre = gsap.timeline({
+const timeline1 = gsap.timeline({
     scrollTrigger: {
       trigger: "#chapitre1", 
       start: "top top",   
       end: "110% 110%", 
-        pin: true,      
+           
         scrub: 1,  
         markers: true
     }
   });
   
 
-  timelineTitre.from("#titre", {
+  timeline1.from("#titre", {
     opacity: 0,          
-    x: -100,           
-    scrub: 1,
+    x: -100,   
+    duration:1,        
     ease: "power2.inOut" 
   });
 
 
-  timelineTitre.to("#soleil", {
+  timeline1.to("#soleil", {
     x: -5000, 
-    duration: 3,           
+    duration: 6,           
     ease: "power2.inOut",  
-  
   });
 
-
-
-  var timeline6 = gsap.timeline({
-    scrollTrigger: {
-        trigger: "#chapitre1", 
-        start: "top top", 
-        end: "bottom bottom",
-        scrub: 1,
-        pin: true, 
-       // markers:true,
-      
-    }
-  });
   
   
-  timeline6.to("#devantnuit", {
+  timeline1.to("#devantnuit", {
     y: "10%", 
-    duration: 1, 
+    duration: 0.5, 
     ease: "power2.inOut" 
   });
   
   
-  timeline6.to("#milieunuit", {
+  timeline1.to("#milieunuit", {
     y: "10%", 
     duration: 1.5,
     ease: "power2.inOut" 
@@ -112,8 +98,8 @@ function animateNightParallax() {
 
 function dayToNightTransition() {
     animateNightParallax(); // Animation de départ du parallaxe de nuit
-    gsap.to("#arrierenuit, #milieunuit, #devantnuit", { opacity: 1, duration: 2 }); // Faire apparaître les éléments de nuit avec une durée de fondu de 2 secondes
-    gsap.to("#arrierejour, #milieujour, #devantjour", { opacity: 0, duration: 2 }); // Faire disparaître les éléments de jour avec une durée de fondu de 2 secondes
+    gsap.to("#arrierenuit, #milieunuit, #devantnuit", { opacity: 1, duration: 1 }); // Faire apparaître les éléments de nuit avec une durée de fondu de 2 secondes
+    gsap.to("#arrierejour, #milieujour, #devantjour", { opacity: 0, duration: 1 }); // Faire disparaître les éléments de jour avec une durée de fondu de 2 secondes
     animateDayParallax(); 
 }
 
@@ -128,7 +114,7 @@ function nightToDayTransition() {
 
 ScrollTrigger.create({
   trigger: ".section1",
-  start: "-120vh top", 
+  start: "top top", 
   end: "bottom bottom",
   onEnter: dayToNightTransition, 
   onLeaveBack: nightToDayTransition,
@@ -167,44 +153,30 @@ gsap.to(".section1", {
 
   //chapitre1-2------------------------------------------
 
-  const timeline5 = gsap.timeline({
+  const timeline2 = gsap.timeline({
     scrollTrigger: {
-      trigger: "#chapitre1-2",
-      start: "top top",   
-      end: "bottom bottom",  
-      scrub: 1,
-      pin: true,  
-      
-   
+        trigger: "#chapitre1-2",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1,
+        pin: true,
     }
-  });
+});
 
-  timeline5.from(".story-text", { opacity: 0, duration: 0.5 });
-
-  const timeline4 = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#chapitre1-2", 
-      start: "top top",   
-      end: "bottom bottom",  
-      scrub: 1,     
-      pin: true,
-     //markers: true  ,     
-    }
-  });
-
-  timeline4.from("#lune", {
-    opacity: 0,
-    x: window.innerWidth,
-    duration: 1,
-    ease: "power2.inOut",
-    pin: true, 
-  });
+timeline2.fromTo(".story-text",
+    { opacity: 0 }, // from
+    { opacity: 1, duration: 1 } // to
+)
+.fromTo("#lune",
+    { opacity: 0, x: window.innerWidth }, // from
+    { opacity: 1, x: 0, duration: 9, pin: true } // to
+);
 
 
 
   //chapitre2------------------------------------------
 
-  const timeline2 = gsap.timeline({
+  const timeline3 = gsap.timeline({
     scrollTrigger: {
       trigger: "#chapitre2",
       start: "top top",   
@@ -216,14 +188,14 @@ gsap.to(".section1", {
   });
   
 
-  timeline2.from("#z1", { opacity: 0, duration: 0.2 })
+  timeline3.from("#z1", { opacity: 0, duration: 0.2 })
           .from("#z2", { opacity: 0, duration: 0.2 })
           .from("#z3", { opacity: 0, duration: 0.2 });
 
          
-timeline2.from(".story-text2", { opacity: 0, duration: 1 });
+timeline3.from(".story-text2", { opacity: 0, duration: 1 });
 
-timeline2.fromTo(".sprite1", { 
+timeline3.fromTo(".sprite1", { 
   scale: 0, 
   
 }, { 
@@ -302,7 +274,7 @@ gsap.to(".section3", {
 
   //chapitre4------------------------------------------
 
-  const timeline3 = gsap.timeline({
+  const timeline4 = gsap.timeline({
     scrollTrigger: {
       trigger: "#chapitre4", 
       start: "top top",  
@@ -313,7 +285,7 @@ gsap.to(".section3", {
   });
   
  
-  timeline3.fromTo("#champignon", {
+  timeline4.fromTo("#champignon", {
     skewX: 0, 
     skewY: 0  
   }, {
@@ -353,7 +325,7 @@ document.addEventListener("click", function () {
 
   //chapitre5------------------------------------------
 
-  const timeline = gsap.timeline({
+  const timeline5 = gsap.timeline({
     scrollTrigger: {
         trigger: '.story-text5', 
         start: 'top top', 
@@ -365,20 +337,20 @@ document.addEventListener("click", function () {
   });
   
   
-  timeline.from('.perschap5', {
+  timeline5.from('.perschap5', {
     x: -600, 
     duration: 0.1 
   });
   
   
-  timeline.from('.feu1, .feu2', {
+  timeline5.from('.feu1, .feu2', {
     scale: 0,
     duration: 0.5
   }, '-=1'); 
 
   //chapitre6------------------------------------------
 
-  const textillu = gsap.timeline({
+  const   timeline6 = gsap.timeline({
     scrollTrigger: {
         trigger: "#chapitre6", 
         start: "top top", 
@@ -389,7 +361,7 @@ document.addEventListener("click", function () {
   });
   
   
-  textillu.fromTo("#textillusion", {
+  timeline6.fromTo("#textillusion", {
       y: "100%",     
       opacity: 0    
   }, {
