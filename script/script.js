@@ -1,7 +1,7 @@
 gsap.registerPlugin(ScrollTrigger) ;
 gsap.registerPlugin(TextPlugin);
-//gsap.registerPlugin(MorphSVGPlugin)
-//gsap.registerPlugin(DrawSVGPlugin);;
+gsap.registerPlugin(MorphSVGPlugin)
+gsap.registerPlugin(DrawSVGPlugin);;
 gsap.registerPlugin(MotionPathPlugin);
 
 
@@ -195,7 +195,7 @@ timeline3.fromTo(".sprite1", {
 
  gsap.set(["#etoile3", "#etoile2", "#etoile1" ],{drawSVG:"0% 0%"});
 function anim()    {
-  gsap.timeline()/*
+  gsap.timeline()
   .fromTo(
     "#etoile3",
      {
@@ -231,7 +231,7 @@ function anim()    {
     }
     
   )
-*/
+
   .fromTo(
     ["#etoile3", "#etoile2", "#etoile1"],
     {
@@ -310,7 +310,7 @@ pin: true,
   });
 
 
-/*let to = gsap.to("#papillon", { 
+let to = gsap.to("#papillon", { 
  morphSVG: "#point-noir"
 });
 
@@ -321,7 +321,7 @@ document.addEventListener("click", function () {
  const myTimeout = setTimeout(function () {
     to.play();
   }, 1000);
-}); */
+}); 
 
   //chapitre5------------------------------------------
 
