@@ -401,7 +401,7 @@ footer a:hover {
   left: 10vw; 
   height: 5vh ;
   fill: rgb(212, 212, 30);
-  
+  visibility: hidden;
 }
 
 #etoile2 {
@@ -410,7 +410,7 @@ footer a:hover {
   left: 35vw; 
   height: 10vh ;
   fill: rgb(212, 212, 30);
-  
+  visibility: hidden;
 }
 
 #etoile3 {
