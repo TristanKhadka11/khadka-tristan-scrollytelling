@@ -469,18 +469,30 @@ footer a:hover {
   top: 30vh; 
   left: 0vw; 
   height: 10vh ;
- 
-  
-}
+ }
 
 #point-noir {
-  width: 100px;
-  height: 300px;
+position: absolute;
+visibility: hidden;
 }
+
+
 
 #point-noir-group {
   fill: #000000; /* black fill color */
 }
+
+.morph {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#abeil {
+  transform-origin: center;
+  transform: scale(0.5);
+}
+
 
 /*---------------------------------------------------------- 
 # Chapitre 5

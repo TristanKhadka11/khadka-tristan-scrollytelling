@@ -1,8 +1,6 @@
 gsap.registerPlugin(ScrollTrigger) ;
 gsap.registerPlugin(TextPlugin);
-gsap.registerPlugin(MorphSVGPlugin)
-gsap.registerPlugin(DrawSVGPlugin);;
-gsap.registerPlugin(MotionPathPlugin);
+
 
 
 
@@ -193,59 +191,27 @@ timeline3.fromTo(".sprite1", {
 
   //chapitre3------------------------------------------
 
- gsap.set(["#etoile3", "#etoile2", "#etoile1" ],{drawSVG:"0% 0%"});
-function anim()    {
-  gsap.timeline()
-  .fromTo(
-    "#etoile3",
-     {
-      drawSVG:"0%"
-    },
-    {
-      drawSVG:"100%",
-      duration: 1
-    }
-    
-  )
+/*gsap.registerPlugin(DrawSVGPlugin);;
+gsap.set(["#etoile3"], { drawSVG: "0% 0%", fillOpacity: 0 });
 
-  .fromTo(
-    "#etoile2",
-     {
-      drawSVG:"0% 0%"
-    },
-    {
-      drawSVG:"0% 100%",
-      duration: 1
-    }
-    
-  )
+const etoile = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#chapitre3",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 1
+  }
+});
 
-  .fromTo(
-    "#etoile1",
-     {
-      drawSVG:"0% 0%"
-    },
-    {
-      drawSVG:"0% 100%",
-      duration: 1
-    }
-    
-  )
+etoile.fromTo(
+  "#etoile3",
+  { drawSVG: "0%", fillOpacity: 0 },
+  { drawSVG: "100%", fillOpacity: 1, duration: 1 }
+);
 
-  .fromTo(
-    ["#etoile3", "#etoile2", "#etoile1"],
-    {
-      fillOpacity: 0
-    },
-    {
-      fillOpacity: 1,
-      duration: 1
-    }
-  );
-}
+const btn = document.querySelector("#go");
+btn.addEventListener("click", anim); */
 
-const btn=document.querySelector("#go");
-btn.addEventListener("click", anim);
 
 gsap.to(".section3", {
   backgroundPosition: "50% 100%", 
@@ -294,6 +260,8 @@ pin: true,
     duration: 4 
   });
 
+  gsap.registerPlugin(MotionPathPlugin);
+
   gsap.to("#papillon", {
     duration: 4,
     repeat: 12,
@@ -309,19 +277,20 @@ pin: true,
     }
   });
 
+  gsap.registerPlugin(MorphSVGPlugin);
 
-let to = gsap.to("#papillon", { 
- morphSVG: "#point-noir"
-});
+  gsap.to("#abeil", {
+    scrollTrigger: {
+        trigger: "#chapitre4",
+        start: "top top",
+        end: "bottom -120%",
+        scrub: 3,
+        markers: false,
+    },
+    duration: 3,
+    morphSVG: "#point-noir"
+  }); 
 
-
-document.addEventListener("click", function () {
- console.log("reset");
- to.progress(0).pause();
- const myTimeout = setTimeout(function () {
-    to.play();
-  }, 1000);
-}); 
 
   //chapitre5------------------------------------------
 
