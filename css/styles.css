@@ -587,7 +587,7 @@ left: 25vw;
 
 .sprite1 {
   aspect-ratio: 1/1;
-  background-image: url('../source/img/png/exports/sprite_max_dors.webp');
+  background-image: url('../source/img/png/exports/sprite_max_dors.png');
   animation: play-sprite1;
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
@@ -601,7 +601,7 @@ left: 25vw;
 
 .sprite3 {
   aspect-ratio: 1/1;
-  background-image: url('../source/img/png/exports/sprite_max_reveille.webp');
+  background-image: url('../source/img/png/exports/sprite_max_reveille.png');
   animation: play-sprite3;
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
