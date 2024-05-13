@@ -14,8 +14,8 @@
 Certaines images sont servies dans des formats non optimisés.
 
 #### Action concrète pour résoudre le problème
-1. Convertir les images en formats next-gen pour bénéficier d'une meilleure compression et d'une réduction de la taille des fichiers.
-2. Utiliser des outils pour optimiser davantage la taille des images.
+1. Convertir les images en formats webp pour bénéficier d'une meilleure compression et d'une réduction de la taille des fichiers.
+2. Utiliser photoshop pour optimiser davantage la taille des images.
 
 #### Résultat
 .
@@ -28,8 +28,8 @@ Certaines images sont servies dans des formats non optimisés.
 La compression du texte n'est pas activée sur le serveur.
 
 #### Action concrète pour résoudre le problème
-1. Activer la compression pour compresser les fichiers texte tels que HTML, CSS et JavaScript.
-2. Configurer correctement les en-têtes HTTP pour permettre la compression des ressources texte.
+1. Activer la compression pour compresser les fichiers texte tels que CSS et JavaScript.
+
 
 #### Résultat
 .
@@ -51,5 +51,5 @@ La politique de mise en cache des ressources statiques n'est pas optimisée.
 
 ## Rapport projet ScrollyTelling après optimisation
 
-[Page Speed Insights - Rapport du 6 mai 2024, 17:50:00](lien_vers_nouveau_rapport)
+[Page Speed Insights - Rapport du 13 mai 2024, 01:50:00]()
 
