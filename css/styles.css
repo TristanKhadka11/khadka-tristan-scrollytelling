@@ -151,7 +151,6 @@ main section {
 }
 
 img {
-  border: 1px solid rgba(218, 0, 0, 0.5); 
   max-width: 350vh; 
   height: auto; 
 }
@@ -177,6 +176,7 @@ ul.technique-gsap{
   z-index: 1000;
   top: 0;
   left: 0;
+  display: none;
 }
 
 ul.technique-gsap li{
