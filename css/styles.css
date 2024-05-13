@@ -419,6 +419,7 @@ footer a:hover {
   left: 50vw; 
   height: 20vh ;
    fill: rgb(212, 212, 30);
+   visibility: hidden;
   
 }
 
