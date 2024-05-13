@@ -1,10 +1,8 @@
-
-//sprite
-
-
-gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(DrawSVGPlugin);
-gsap.registerPlugin(MorphSVGPlugin);
+gsap.registerPlugin(ScrollTrigger) ;
+gsap.registerPlugin(TextPlugin);
+//gsap.registerPlugin(MorphSVGPlugin)
+//gsap.registerPlugin(DrawSVGPlugin);;
+gsap.registerPlugin(MotionPathPlugin);
 
 
 
@@ -38,140 +36,129 @@ window.addEventListener('scroll', function() {
 
   //chapitre1------------------------------------------
 
-const timeline1 = gsap.timeline({
+const Titre = gsap.timeline({
     scrollTrigger: {
       trigger: "#chapitre1", 
       start: "top top",   
-      end: "110% 110%", 
-           
+      end: "bottom bottom",    
         scrub: 1,  
-        markers: true
+        markers: false,
+      
     }
   });
   
-
-  timeline1.from("#titre", {
+ Titre.from("#titre", {
     opacity: 0,          
     x: -100,   
-    duration:1,        
+    duration:7,      
     ease: "power2.inOut" 
   });
 
-
-  timeline1.to("#soleil", {
-    x: -5000, 
-    duration: 6,           
-    ease: "power2.inOut",  
-  });
-
-  
-  
-  timeline1.to("#devantnuit", {
-    y: "10%", 
-    duration: 0.5, 
-    ease: "power2.inOut" 
-  });
-  
-  
-  timeline1.to("#milieunuit", {
-    y: "10%", 
-    duration: 1.5,
-    ease: "power2.inOut" 
-  }, '-=1'); 
-
-  
-
-
-
-let speed = 100;
-
-
-function animateDayParallax() {
-    gsap.to("#arrierejour, #milieujour, #devantjour", { y: 3 * speed, ease: "power1.in" });
-}
-
-
-function animateNightParallax() {
-    gsap.to("#arrierenuit, #milieunuit, #devantnuit", { y: 0 * speed, ease: "power1.in" });
-}
-
-
-function dayToNightTransition() {
-    animateNightParallax(); // Animation de départ du parallaxe de nuit
-    gsap.to("#arrierenuit, #milieunuit, #devantnuit", { opacity: 1, duration: 1 }); // Faire apparaître les éléments de nuit avec une durée de fondu de 2 secondes
-    gsap.to("#arrierejour, #milieujour, #devantjour", { opacity: 0, duration: 1 }); // Faire disparaître les éléments de jour avec une durée de fondu de 2 secondes
-    animateDayParallax(); 
-}
-
-
-function nightToDayTransition() {
-    animateDayParallax(); // Animation de départ du parallaxe du jour
-    gsap.to("#arrierenuit, #milieunuit, #devantnuit", { opacity: 0, duration: 2 }); // Faire disparaître les éléments de nuit avec une durée de fondu de 2 secondes
-    gsap.to("#arrierejour, #milieujour, #devantjour", { opacity: 1, duration: 2 }); // Faire apparaître les éléments de jour avec une durée de fondu de 2 secondes
-    animateNightParallax();
-}
-
-
-ScrollTrigger.create({
-  trigger: ".section1",
-  start: "top top", 
-  end: "bottom bottom",
-  onEnter: dayToNightTransition, 
-  onLeaveBack: nightToDayTransition,
-  scrub: 1,
-  pin: true, 
-});
-
-
-animateDayParallax(); 
-
-gsap.to(".section3", {
-  backgroundPosition: "50% 120%",
-  ease: "none",
-  scrollTrigger: {
-      trigger: ".section3",
+  const soleil = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#chapitre1",
       start: "top top",
-      end: "bottom bottom",
-      scrub: true,
-      pin: true, 
+      end: "bottom -40%",
+      scrub: 1,
 
-  }
-});
+      pin:true,
+      
+    },
+  });
+  
+  soleil.to("#soleil", {
+    x: "30vw",
+    duration:3, 
+  });
+  
+
+
+
+  const devantnuit = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#chapitre1",
+      start: "top 50%",
+      end: "bottom -110%",
+      markers: false,
+      duration: 1,
+      scrub: 2,
+    },
+  });
+  
+  devantnuit.to("#devantnuit", {
+    y: "10%",
+    duration: 3,
+    ease: "power2.inOut",
+  });
+  
+  const milieunuit = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#chapitre1",
+      start: "top top",
+      end: "bottom -110%",
+      markers: false,
+      duration: 3, // Réduisez la durée de cette animation pour que le milieu tombe en premier
+      scrub: 2,
+    },
+  });
+  
+  milieunuit.to("#milieunuit", {
+    y: "10%",
+    duration: 1.5,
+    ease: "power2.inOut",
+  });
+  
+  // Réglez le retard de l'animation devant nuit pour qu'elle commence après l'animation milieu nuit
+  devantnuit.delay(1);
+  
+  
+
 
 gsap.to(".section1", {
   backgroundPosition: "50% 110%",
   ease: "none",
   scrollTrigger: {
       trigger: ".section1",
-      start: "center center",
-      end: "bottom top",
-      scrub: 1,
-      pin: true, 
-      
+      start: "top top",
+      end: "bottom -40%",
+      scrub: 1, 
+      duration:4,
   }
 });
 
   //chapitre1-2------------------------------------------
 
-  const timeline2 = gsap.timeline({
+  const Titre2 = gsap.timeline({
     scrollTrigger: {
         trigger: "#chapitre1-2",
         start: "top top",
-        end: "bottom bottom",
+        end: "bottom -120%",
         scrub: 1,
-        pin: true,
+  
     }
 });
 
-timeline2.fromTo(".story-text",
+Titre2.fromTo(".story-text",
     { opacity: 0 }, // from
     { opacity: 1, duration: 1 } // to
 )
-.fromTo("#lune",
-    { opacity: 0, x: window.innerWidth }, // from
-    { opacity: 1, x: 0, duration: 9, pin: true } // to
-);
 
+
+const lune = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#chapitre1-2",
+    start: "top top",
+    end: "bottom -120%",
+    scrub: 1,
+    pin:true,
+    
+  },
+});
+
+lune.to("#lune", {
+  x: "-40vw",
+  duration:3, 
+});
 
 
   //chapitre2------------------------------------------
@@ -180,9 +167,9 @@ timeline2.fromTo(".story-text",
     scrollTrigger: {
       trigger: "#chapitre2",
       start: "top top",   
-      end: "bottom bottom", 
+      end: "bottom -120%", 
       scrub: 1,
-      pin: true, 
+   pin:true,
         
     }
   });
@@ -201,14 +188,14 @@ timeline3.fromTo(".sprite1", {
 }, { 
   scale: 0.8, 
 
-  duration: 0.5 
+  duration: 0.8 
 });
 
   //chapitre3------------------------------------------
 
-  gsap.set(["#etoile3", "#etoile2", "#etoile1" ],{drawSVG:"0% 0%"});
-function anim() {
-  gsap.timeline()
+ gsap.set(["#etoile3", "#etoile2", "#etoile1" ],{drawSVG:"0% 0%"});
+function anim()    {
+  gsap.timeline()/*
   .fromTo(
     "#etoile3",
      {
@@ -244,7 +231,7 @@ function anim() {
     }
     
   )
-
+*/
   .fromTo(
     ["#etoile3", "#etoile2", "#etoile1"],
     {
@@ -270,6 +257,19 @@ gsap.to(".section3", {
       scrub: 0.5,
       pin: true, 
   }
+}); 
+
+gsap.to(".section3", {
+  backgroundPosition: "50% 90%",
+  ease: "none",
+  scrollTrigger: {
+      trigger: ".section3",
+      start: "top top",
+      end: "bottom -10%",
+      scrub: 1,
+pin: true,
+
+  }
 });
 
   //chapitre4------------------------------------------
@@ -278,9 +278,9 @@ gsap.to(".section3", {
     scrollTrigger: {
       trigger: "#chapitre4", 
       start: "top top",  
-      end: "bottom bottom", 
+      end: "bottom -120%", 
       scrub: 1,
-       pin: true,          
+      pin:true,
     }
   });
   
@@ -291,7 +291,7 @@ gsap.to(".section3", {
   }, {
     skewX: 9,
     skewY: 15, 
-    duration: 1 
+    duration: 4 
   });
 
   gsap.to("#papillon", {
@@ -310,7 +310,7 @@ gsap.to(".section3", {
   });
 
 
-let to = gsap.to("#papillon", { 
+/*let to = gsap.to("#papillon", { 
  morphSVG: "#point-noir"
 });
 
@@ -321,17 +321,17 @@ document.addEventListener("click", function () {
  const myTimeout = setTimeout(function () {
     to.play();
   }, 1000);
-});
+}); */
 
   //chapitre5------------------------------------------
 
   const timeline5 = gsap.timeline({
     scrollTrigger: {
-        trigger: '.story-text5', 
+        trigger: '#chapitre5', 
         start: 'top top', 
-        end: 'bottom bottom', 
+        end: 'bottom -120%', 
         scrub: 1,
-        pin: true, 
+        pin:true,
   
     }
   });
@@ -339,13 +339,13 @@ document.addEventListener("click", function () {
   
   timeline5.from('.perschap5', {
     x: -600, 
-    duration: 0.1 
+    duration: 4 
   });
   
   
   timeline5.from('.feu1, .feu2', {
     scale: 0,
-    duration: 0.5
+    duration: 4
   }, '-=1'); 
 
   //chapitre6------------------------------------------
@@ -354,9 +354,9 @@ document.addEventListener("click", function () {
     scrollTrigger: {
         trigger: "#chapitre6", 
         start: "top top", 
-        end: "botttom bottom", 
+        end: "botttom -120%", 
         scrub: 1,
-        pin: true, 
+        pin:true,
     }
   });
   
@@ -376,9 +376,9 @@ document.addEventListener("click", function () {
     scrollTrigger: {
         trigger: "#chapitre7", 
         start: "top top", 
-        end: "bottom bottom", 
+        end: "bottom -120%", 
         scrub: 1,
-        pin: true, 
+        pin:true,
     }
   });
   
