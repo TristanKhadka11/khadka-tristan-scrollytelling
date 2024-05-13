@@ -48,3 +48,8 @@ La politique de mise en cache des ressources statiques n'est pas optimisée.
 #### Résultat
 .
 
+
+## Rapport projet ScrollyTelling après optimisation
+
+[Page Speed Insights - Rapport du 6 mai 2024, 17:50:00](lien_vers_nouveau_rapport)
+
