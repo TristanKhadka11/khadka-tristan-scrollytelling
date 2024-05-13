@@ -18,7 +18,7 @@ Certaines images sont servies dans des formats non optimisés.
 2. Utiliser photoshop pour optimiser davantage la taille des images.
 
 #### Résultat
-.
+Cela a augmenté mes performances de 1% donc de 96% a 97% 
 
 ## Problème #2
 
@@ -32,7 +32,7 @@ La compression du texte n'est pas activée sur le serveur.
 
 
 #### Résultat
-.
+mes bonnes pratiques sont passés de 96% a 100%
 
 ## Problème #3
 
@@ -46,10 +46,14 @@ La politique de mise en cache des ressources statiques n'est pas optimisée.
 2. .
 
 #### Résultat
-.
+.je n'ai pas arriver a le faire donc je pense que cela n'a pas changé grand chose.
 
 
 ## Rapport projet ScrollyTelling après optimisation
 
+<<<<<<< HEAD
 [Page Speed Insights - Rapport du 13 mai 2024, 01:50:00]()
+=======
+[Page Speed Insights - Rapport du 6 mai 2024, 17:53:00](https://pagespeed.web.dev/analysis/https-tristan-tim-momo-com/57q9heeswx?form_factor=desktop)
+>>>>>>> af9ba00769d79ec4667ac7b8aa6916d464e8b7f6
 
