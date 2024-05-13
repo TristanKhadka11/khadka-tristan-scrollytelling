@@ -1,8 +1,8 @@
-@import url(../assets/font/coolvetica_rg.otf);
+@import url(../source/font/coolvetica.otf);
 
 @font-face {
   font-family: "coolvetica";
-  src: url(../assets/font/coolvetica_rg.otf);
+  src: url(../source/font/coolvetica.otf);
 }
 
 :root {
@@ -79,7 +79,7 @@ body {
 header {
   width: 100%;
   height: calc(100vh); 
-  background-image: url('../source/img/png/exports/main.png');
+  background-image: url('../source/img/png/exports/main.webp');
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -136,7 +136,7 @@ main section {
   height: 100vh;
   background-size: cover;
   background-position: center;
-  border: 1px solid red;
+   /*border: 1px solid red; */
 }
 
 
@@ -188,7 +188,7 @@ footer {
   color: #fff; 
   padding: 20px; 
   text-align: center; 
-  background-image: url('../source/img/png/exports/main.png');
+  background-image: url('../source/img/png/exports/main.webp');
   height: 21vh;
 }
 
@@ -334,7 +334,7 @@ footer a:hover {
 ----------------------------------------------------------*/ 
 
 .section2 {
-    background-image: url('../source/img/png/exports/blanc.png');
+   background-color: white;
 }
 
 #z1 {
@@ -531,7 +531,7 @@ z-index: 0;
 ----------------------------------------------------------*/ 
 
 .section6 {
-  background-image: url('../source/img/png/exports/noir.jpg');
+  background-image: url('../source/img/png/exports/noir.webp');
 }
 
 #textillusion {
@@ -549,7 +549,7 @@ z-index: 0;
 ----------------------------------------------------------*/ 
 
 .section7 {
-  background-image: url('../source/img/svg/chapitre_02/blanc.png');
+  background-color: white;
 }
 
 .perschap8{
@@ -587,7 +587,7 @@ left: 25vw;
 
 .sprite1 {
   aspect-ratio: 1/1;
-  background-image: url('../source/img/png/exports/sprite_max_dors.png');
+  background-image: url('../source/img/png/exports/sprite_max_dors.webp');
   animation: play-sprite1;
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
@@ -601,7 +601,7 @@ left: 25vw;
 
 .sprite3 {
   aspect-ratio: 1/1;
-  background-image: url('../source/img/png/exports/sprite_max_reveille.png');
+  background-image: url('../source/img/png/exports/sprite_max_reveille.webp');
   animation: play-sprite3;
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
